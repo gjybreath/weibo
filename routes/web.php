@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', 'StaticPagesController@home');
-Route::get('/help', 'StaticPagesController@help');
-Route::get('/about', 'StaticPagesController@about');
+Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('/help', 'StaticPagesController@help')->name('help');
+Route::get('/about', 'StaticPagesController@about')->name('about');
+#注册界面
+Route::get('/signup', 'UsersController@create')->name('signup');
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('welcome')->name('welcome');
 });
 
 

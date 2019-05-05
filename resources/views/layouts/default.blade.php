@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>@yield('title','默认值') - Weibo App</title>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   </head>
   <body>
-    @yield('content')
+    @include('layouts._header')
 
-    <?php echo "此页面为默认视图页面，尝试输出 <br>部分为html页面，非纯php页面"; ?>
+    <div class="container">
+      <div class="offset-md-1 col-md-10">
+        @yield('content')
+        @include('layouts._footer')
+      </div>
+    </div>
   </body>
 </html>
