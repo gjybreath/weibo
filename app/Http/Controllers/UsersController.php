@@ -12,8 +12,25 @@ class UsersController extends Controller
         return view('users.create');
     }
 
+/*    路由隐式绑定
+    参数指定的类型User为模型名
+    $user为url传递的参数*/
+
     public function show(User $user)
     {
         return view('users.show', compact('user'));
     }
+
+
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'email' => 'required|email|unique:users|max:255',
+            'password' => 'required|confirmed|min:6'
+        ]);
+        return;
+    }
 }
+
